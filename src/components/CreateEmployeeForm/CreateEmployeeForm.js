@@ -1,133 +1,119 @@
-import { useState } from 'react'
+import { useFormik } from 'formik'
 
 export default function CreateEmployeeForm() {
-	const [formValues, setFormValues] = useState({
-		firstname: '',
-		lastname: '',
-		dateOfBirth: '',
-		startDate: '',
-		street: '',
-		city: '',
-		state: '',
-		zip: 0,
-		department: '',
+	const formik = useFormik({
+		initialValues: {
+			firstname: '',
+			lastname: '',
+			dateOfBirth: '',
+			startDate: '',
+			street: '',
+			city: '',
+			state: '',
+			zip: 0,
+			department: '',
+		},
+		onSubmit: (values) => {
+			alert(JSON.stringify(values, null, 2))
+		},
 	})
-
-	const handleSubmit = (e) => {
-		console.log('Click submit')
-	}
-
-	const handleChange = (e) => {
-		setFormValues({ ...formValues, [e.target.name]: e.target.value })
-	}
-
 	return (
 		<div className="container">
 			<h1>Create Employee</h1>
+			<form onSubmit={formik.handleSubmit}>
+				<label htmlFor="firstname"> First Name</label>
+				<input
+					id="firstname"
+					onChange={formik.handleChange}
+					value={formik.values.firstname}
+					name="firstname"
+					type="text"
+				/>
 
-			<form action="#" id="create-employee">
-				<label>
-					First Name
-					<input
-						onChange={handleChange}
-						value={formValues.firstname}
-						name="firstname"
-						type="text"
-					/>
-				</label>
+				<label htmlFor="lastname">Last Name</label>
+				<input
+					id="Lastname"
+					onChange={formik.handleChange}
+					value={formik.values.lastname}
+					name="lastname"
+					type="text"
+				/>
 
-				<label>
-					Last Name
-					<input
-						onChange={handleChange}
-						value={formValues.lastname}
-						name="lastname"
-						type="text"
-					/>
-				</label>
+				<label htmlFor="dateOfBirth">Date of Birth</label>
+				<input
+					id="dateOfBirth"
+					onChange={formik.handleChange}
+					value={formik.values.dateOfBirth}
+					name="dateOfBirth"
+					type="text"
+				/>
 
-				<label>
-					Date of Birth
-					<input
-						onChange={handleChange}
-						value={formValues.dateOfBirth}
-						name="dateOfBirth"
-						type="text"
-					/>
-				</label>
-
-				<label>
-					Start Date
-					<input
-						onChange={handleChange}
-						value={formValues.startDate}
-						name="startDate"
-						type="text"
-					/>
-				</label>
+				<label htmlFor="startDate">Start Date</label>
+				<input
+					id="startDate"
+					onChange={formik.handleChange}
+					value={formik.values.startDate}
+					name="startDate"
+					type="text"
+				/>
 
 				<fieldset>
 					<legend>Address</legend>
 
-					<label>
-						Street
-						<input
-							onChange={handleChange}
-							value={formValues.street}
-							name="street"
-							type="text"
-						/>
-					</label>
+					<label htmlFor="street">Street</label>
+					<input
+						id="street"
+						onChange={formik.handleChange}
+						value={formik.values.street}
+						name="street"
+						type="text"
+					/>
 
-					<label>
-						City
-						<input
-							onChange={handleChange}
-							value={formValues.city}
-							name="city"
-							type="text"
-						/>
-					</label>
+					<label htmlFor="city">City</label>
+					<input
+						id="city"
+						onChange={formik.handleChange}
+						value={formik.values.city}
+						name="city"
+						type="text"
+					/>
 
-					<label>
-						State
-						<select
-							value={formValues.state}
-							onChange={handleChange}
-							name="state"
-						></select>
-					</label>
+					<label htmlFor="state">State</label>
+					<select
+						id="state"
+						value={formik.values.state}
+						onChange={formik.handleChange}
+						name="state"
+					></select>
 
-					<label>
-						Zip Code
-						<input
-							onChange={handleChange}
-							value={formValues.zip}
-							name="zip"
-							type="number"
-							min="0"
-							max="99999"
-						/>
-					</label>
+					<label htmlFor="zip">Zip Code</label>
+					<input
+						id="zip"
+						onChange={formik.handleChange}
+						value={formik.values.zip}
+						name="zip"
+						type="number"
+						min="0"
+						max="99999"
+					/>
 				</fieldset>
 
-				<label>
-					Department
-					<select
-						name="department"
-						onChange={handleChange}
-						value={formValues.department}
-					>
-						<option>Sales</option>
-						<option>Marketing</option>
-						<option>Engineering</option>
-						<option>Human Resources</option>
-						<option>Legal</option>
-					</select>
-				</label>
-			</form>
+				<label htmlFor="department">Department</label>
+				<select
+					id="department"
+					name="department"
+					onChange={formik.handleChange}
+					value={formik.values.department}
+				>
+					<option>Sales</option>
+					<option>Marketing</option>
+					<option>Engineering</option>
+					<option>Human Resources</option>
+					<option>Legal</option>
+				</select>
 
-			<button onClick={handleSubmit}>Save</button>
+				<button type="submit">Save</button>
+			</form>
 		</div>
 	)
 }
