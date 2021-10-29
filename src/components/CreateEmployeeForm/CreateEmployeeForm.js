@@ -7,13 +7,13 @@ export default function CreateEmployeeForm() {
 		initialValues: {
 			firstname: '',
 			lastname: '',
-			dateOfBirth: '',
-			startDate: '',
+			dateOfBirth: '2000-01-01',
+			startDate: '2021-01-01',
 			street: '',
 			city: '',
-			state: states[0]?.abbreviation,
+			state: states[0].abbreviation,
 			zip: 0,
-			department: departments[0]?.abbreviation,
+			department: departments[0].abbreviation,
 		},
 		onSubmit: (values) => {
 			alert(JSON.stringify(values, null, 2))
@@ -88,7 +88,10 @@ export default function CreateEmployeeForm() {
 						name="state"
 					>
 						{states.map((state) => (
-							<option value={state.abbreviation}>
+							<option
+								key={state.abbreviation}
+								value={state.abbreviation}
+							>
 								{state.name}
 							</option>
 						))}
@@ -115,7 +118,10 @@ export default function CreateEmployeeForm() {
 					value={formik.values.department}
 				>
 					{departments.map((department) => (
-						<option value={department.abbreviation}>
+						<option
+							key={department.abbreviation}
+							value={department.abbreviation}
+						>
 							{department.name}
 						</option>
 					))}
