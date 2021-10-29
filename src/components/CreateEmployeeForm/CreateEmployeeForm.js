@@ -1,8 +1,12 @@
 import { useFormik } from 'formik'
 import { states } from '../../assets/data/states'
 import { departments } from '../../assets/data/departments'
+import { useDispatch } from 'react-redux'
+import { add } from '../../features/employees/employees'
 
 export default function CreateEmployeeForm() {
+	const dispatch = useDispatch()
+
 	const formik = useFormik({
 		initialValues: {
 			firstname: '',
@@ -16,7 +20,7 @@ export default function CreateEmployeeForm() {
 			department: departments[0].abbreviation,
 		},
 		onSubmit: (values) => {
-			alert(JSON.stringify(values, null, 2))
+			dispatch(add(values))
 		},
 	})
 	return (
