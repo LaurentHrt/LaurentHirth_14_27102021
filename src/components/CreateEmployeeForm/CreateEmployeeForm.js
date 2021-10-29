@@ -15,9 +15,9 @@ export default function CreateEmployeeForm() {
 			startDate: '2021-01-01',
 			street: '',
 			city: '',
-			state: states[0].abbreviation,
+			state: states[0],
 			zip: 0,
-			department: departments[0].abbreviation,
+			department: departments[0],
 		},
 		onSubmit: (values) => {
 			dispatch(add(values))
@@ -91,13 +91,8 @@ export default function CreateEmployeeForm() {
 						onChange={formik.handleChange}
 						name="state"
 					>
-						{states.map((state) => (
-							<option
-								key={state.abbreviation}
-								value={state.abbreviation}
-							>
-								{state.name}
-							</option>
+						{states.map((state, index) => (
+							<option key={index}>{state}</option>
 						))}
 					</select>
 
@@ -121,13 +116,8 @@ export default function CreateEmployeeForm() {
 					onChange={formik.handleChange}
 					value={formik.values.department}
 				>
-					{departments.map((department) => (
-						<option
-							key={department.abbreviation}
-							value={department.abbreviation}
-						>
-							{department.name}
-						</option>
+					{departments.map((department, index) => (
+						<option key={index}>{department}</option>
 					))}
 				</select>
 
