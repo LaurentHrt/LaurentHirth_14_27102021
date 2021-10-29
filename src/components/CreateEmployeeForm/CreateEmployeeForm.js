@@ -3,6 +3,15 @@ import { states } from '../../assets/data/states'
 import { departments } from '../../assets/data/departments'
 import { useDispatch } from 'react-redux'
 import { add } from '../../features/employees/employees'
+import Button from '@mui/material/Button'
+import {
+	FormControl,
+	InputLabel,
+	MenuItem,
+	Select,
+	TextField,
+	Grid,
+} from '@mui/material'
 
 export default function CreateEmployeeForm() {
 	const dispatch = useDispatch()
@@ -24,105 +33,122 @@ export default function CreateEmployeeForm() {
 		},
 	})
 	return (
-		<div className="container">
+		<div className="formContainer">
 			<h1>Create Employee</h1>
-			<form onSubmit={formik.handleSubmit}>
-				<label htmlFor="firstname">First Name</label>
-				<input
-					id="firstname"
-					onChange={formik.handleChange}
-					value={formik.values.firstname}
-					name="firstname"
-					type="text"
-				/>
 
-				<label htmlFor="lastname">Last Name</label>
-				<input
-					id="Lastname"
-					onChange={formik.handleChange}
-					value={formik.values.lastname}
-					name="lastname"
-					type="text"
-				/>
+			<Grid container rowSpacing={3} columnSpacing={3}>
+				<Grid item xs={12} sm={4}>
+					<TextField
+						fullWidth
+						label="First Name"
+						onChange={formik.handleChange}
+						value={formik.values.firstname}
+						name="firstname"
+					/>
+				</Grid>
+				<Grid item xs={12} sm={4}>
+					<TextField
+						fullWidth
+						label="Last Name"
+						onChange={formik.handleChange}
+						value={formik.values.lastname}
+						name="lastname"
+					/>
+				</Grid>
+				<Grid item xs={12} sm={4}>
+					<TextField
+						fullWidth
+						label="Date Of Birth"
+						onChange={formik.handleChange}
+						value={formik.values.dateOfBirth}
+						name="dateOfBirth"
+						type="date"
+					/>
+				</Grid>
 
-				<label htmlFor="dateOfBirth">Date of Birth</label>
-				<input
-					id="dateOfBirth"
-					onChange={formik.handleChange}
-					value={formik.values.dateOfBirth}
-					name="dateOfBirth"
-					type="date"
-				/>
-
-				<label htmlFor="startDate">Start Date</label>
-				<input
-					id="startDate"
-					onChange={formik.handleChange}
-					value={formik.values.startDate}
-					name="startDate"
-					type="date"
-				/>
-
-				<fieldset>
-					<legend>Address</legend>
-
-					<label htmlFor="street">Street</label>
-					<input
-						id="street"
+				<Grid item xs={12} sm={3}>
+					<TextField
+						fullWidth
+						label="Street"
 						onChange={formik.handleChange}
 						value={formik.values.street}
 						name="street"
 						type="text"
 					/>
-
-					<label htmlFor="city">City</label>
-					<input
-						id="city"
+				</Grid>
+				<Grid item xs={12} sm={3}>
+					<TextField
+						fullWidth
+						label="City"
 						onChange={formik.handleChange}
 						value={formik.values.city}
 						name="city"
 						type="text"
 					/>
-
-					<label htmlFor="state">State</label>
-					<select
-						id="state"
-						value={formik.values.state}
-						onChange={formik.handleChange}
-						name="state"
-					>
-						{states.map((state, index) => (
-							<option key={index}>{state}</option>
-						))}
-					</select>
-
-					<label htmlFor="zip">Zip Code</label>
-					<input
-						id="zip"
+				</Grid>
+				<Grid item xs={12} sm={3}>
+					<TextField
+						fullWidth
+						label="Zip Code"
 						onChange={formik.handleChange}
 						value={formik.values.zip}
 						name="zip"
 						type="number"
-						min="0"
-						max="99999"
 					/>
-				</fieldset>
+				</Grid>
+				<Grid item xs={12} sm={3}>
+					<FormControl fullWidth>
+						<InputLabel id="state">State</InputLabel>
+						<Select
+							label="State"
+							labelId="state"
+							value={formik.values.state}
+							onChange={formik.handleChange}
+							name="state"
+						>
+							{states.map((state, index) => (
+								<MenuItem key={index} value={state}>
+									{state}
+								</MenuItem>
+							))}
+						</Select>
+					</FormControl>
+				</Grid>
 
-				<label htmlFor="department">Department</label>
-				<select
-					required
-					id="department"
-					name="department"
-					onChange={formik.handleChange}
-					value={formik.values.department}
-				>
-					{departments.map((department, index) => (
-						<option key={index}>{department}</option>
-					))}
-				</select>
+				<Grid item xs={12} sm={6}>
+					<TextField
+						fullWidth
+						label="Start Date"
+						onChange={formik.handleChange}
+						value={formik.values.startDate}
+						name="startDate"
+						type="date"
+					/>
+				</Grid>
+				<Grid item xs={12} sm={6}>
+					<FormControl fullWidth>
+						<InputLabel id="department">Department</InputLabel>
+						<Select
+							labelId="department"
+							label="Department"
+							required
+							name="department"
+							onChange={formik.handleChange}
+							value={formik.values.department}
+						>
+							{departments.map((department, index) => (
+								<MenuItem key={index} value={department}>
+									{department}
+								</MenuItem>
+							))}
+						</Select>
+					</FormControl>
+				</Grid>
+			</Grid>
 
-				<button type="submit">Save</button>
-			</form>
+			<Button onClick={formik.handleSubmit} variant="contained">
+				Save
+			</Button>
 		</div>
 	)
 }
