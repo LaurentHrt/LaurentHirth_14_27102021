@@ -1,5 +1,6 @@
 import { useFormik } from 'formik'
 import { states } from '../../assets/data/states'
+import { departments } from '../../assets/data/departments'
 
 export default function CreateEmployeeForm() {
 	const formik = useFormik({
@@ -10,9 +11,9 @@ export default function CreateEmployeeForm() {
 			startDate: '',
 			street: '',
 			city: '',
-			state: '',
+			state: states[0]?.abbreviation,
 			zip: 0,
-			department: '',
+			department: departments[0]?.abbreviation,
 		},
 		onSubmit: (values) => {
 			alert(JSON.stringify(values, null, 2))
@@ -86,13 +87,11 @@ export default function CreateEmployeeForm() {
 						onChange={formik.handleChange}
 						name="state"
 					>
-						{states.map((state) => {
-							return (
-								<option value={state.abbreviation}>
-									{state.name}
-								</option>
-							)
-						})}
+						{states.map((state) => (
+							<option value={state.abbreviation}>
+								{state.name}
+							</option>
+						))}
 					</select>
 
 					<label htmlFor="zip">Zip Code</label>
@@ -109,16 +108,17 @@ export default function CreateEmployeeForm() {
 
 				<label htmlFor="department">Department</label>
 				<select
+					required
 					id="department"
 					name="department"
 					onChange={formik.handleChange}
 					value={formik.values.department}
 				>
-					<option>Sales</option>
-					<option>Marketing</option>
-					<option>Engineering</option>
-					<option>Human Resources</option>
-					<option>Legal</option>
+					{departments.map((department) => (
+						<option value={department.abbreviation}>
+							{department.name}
+						</option>
+					))}
 				</select>
 
 				<button type="submit">Save</button>
