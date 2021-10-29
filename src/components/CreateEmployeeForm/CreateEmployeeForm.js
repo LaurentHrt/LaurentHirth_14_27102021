@@ -1,4 +1,5 @@
 import { useFormik } from 'formik'
+import { states } from '../../assets/data/states'
 
 export default function CreateEmployeeForm() {
 	const formik = useFormik({
@@ -21,7 +22,7 @@ export default function CreateEmployeeForm() {
 		<div className="container">
 			<h1>Create Employee</h1>
 			<form onSubmit={formik.handleSubmit}>
-				<label htmlFor="firstname"> First Name</label>
+				<label htmlFor="firstname">First Name</label>
 				<input
 					id="firstname"
 					onChange={formik.handleChange}
@@ -45,7 +46,7 @@ export default function CreateEmployeeForm() {
 					onChange={formik.handleChange}
 					value={formik.values.dateOfBirth}
 					name="dateOfBirth"
-					type="text"
+					type="date"
 				/>
 
 				<label htmlFor="startDate">Start Date</label>
@@ -54,7 +55,7 @@ export default function CreateEmployeeForm() {
 					onChange={formik.handleChange}
 					value={formik.values.startDate}
 					name="startDate"
-					type="text"
+					type="date"
 				/>
 
 				<fieldset>
@@ -84,7 +85,15 @@ export default function CreateEmployeeForm() {
 						value={formik.values.state}
 						onChange={formik.handleChange}
 						name="state"
-					></select>
+					>
+						{states.map((state) => {
+							return (
+								<option value={state.abbreviation}>
+									{state.name}
+								</option>
+							)
+						})}
+					</select>
 
 					<label htmlFor="zip">Zip Code</label>
 					<input
