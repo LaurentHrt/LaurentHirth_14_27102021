@@ -40,6 +40,7 @@ export default function CreateEmployeeForm() {
 				<Grid item xs={12} sm={4}>
 					<TextField
 						fullWidth
+						required
 						label="First Name"
 						onChange={formik.handleChange}
 						value={formik.values.firstname}
@@ -49,6 +50,7 @@ export default function CreateEmployeeForm() {
 				<Grid item xs={12} sm={4}>
 					<TextField
 						fullWidth
+						required
 						label="Last Name"
 						onChange={formik.handleChange}
 						value={formik.values.lastname}
@@ -58,6 +60,7 @@ export default function CreateEmployeeForm() {
 				<Grid item xs={12} sm={4}>
 					<TextField
 						fullWidth
+						required
 						label="Date Of Birth"
 						onChange={formik.handleChange}
 						value={formik.values.dateOfBirth}
@@ -69,6 +72,7 @@ export default function CreateEmployeeForm() {
 				<Grid item xs={12} sm={3}>
 					<TextField
 						fullWidth
+						required
 						label="Street"
 						onChange={formik.handleChange}
 						value={formik.values.street}
@@ -79,6 +83,7 @@ export default function CreateEmployeeForm() {
 				<Grid item xs={12} sm={3}>
 					<TextField
 						fullWidth
+						required
 						label="City"
 						onChange={formik.handleChange}
 						value={formik.values.city}
@@ -89,6 +94,7 @@ export default function CreateEmployeeForm() {
 				<Grid item xs={12} sm={3}>
 					<TextField
 						fullWidth
+						required
 						label="Zip Code"
 						onChange={formik.handleChange}
 						value={formik.values.zip}
@@ -97,7 +103,7 @@ export default function CreateEmployeeForm() {
 					/>
 				</Grid>
 				<Grid item xs={12} sm={3}>
-					<FormControl fullWidth>
+					<FormControl fullWidth required>
 						<InputLabel id="state">State</InputLabel>
 						<Select
 							label="State"
@@ -118,6 +124,7 @@ export default function CreateEmployeeForm() {
 				<Grid item xs={12} sm={6}>
 					<TextField
 						fullWidth
+						required
 						label="Start Date"
 						onChange={formik.handleChange}
 						value={formik.values.startDate}
@@ -126,7 +133,7 @@ export default function CreateEmployeeForm() {
 					/>
 				</Grid>
 				<Grid item xs={12} sm={6}>
-					<FormControl fullWidth>
+					<FormControl fullWidth required>
 						<InputLabel id="department">Department</InputLabel>
 						<Select
 							labelId="department"
