@@ -12,9 +12,12 @@ import {
 	TextField,
 	Grid,
 } from '@mui/material'
+import Modal from '../Modal/Modal'
+import { useState } from 'react'
 
 export default function CreateEmployeeForm() {
 	const dispatch = useDispatch()
+	const [modalIsOpen, setModalIsOpen] = useState(false)
 
 	const formik = useFormik({
 		initialValues: {
@@ -30,8 +33,10 @@ export default function CreateEmployeeForm() {
 		},
 		onSubmit: (values) => {
 			dispatch(add(values))
+			setModalIsOpen(true)
 		},
 	})
+
 	return (
 		<div className="formContainer">
 			<h1>Create Employee</h1>
@@ -156,6 +161,8 @@ export default function CreateEmployeeForm() {
 			<Button onClick={formik.handleSubmit} variant="contained">
 				Save
 			</Button>
+
+			{modalIsOpen && <Modal setOpen={setModalIsOpen} />}
 		</div>
 	)
 }
