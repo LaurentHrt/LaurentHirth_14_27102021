@@ -4,16 +4,12 @@ import { departments } from '../../assets/data/departments'
 import { useDispatch } from 'react-redux'
 import { add } from '../../features/employees/employees'
 import Button from '@mui/material/Button'
-import {
-	FormControl,
-	InputLabel,
-	MenuItem,
-	Select,
-	TextField,
-	Grid,
-} from '@mui/material'
-import Modal from '../Modal/Modal'
+import { FormControl, InputLabel, TextField, Grid } from '@mui/material'
+import Modal from 'hrnet-modal'
+// import Modal from '../Modal/Modal'
 import { useState } from 'react'
+import DatePicker from '../DatePicker/DatePicker'
+import SelectMenu from '../SelectMenu/SelectMenu'
 
 export default function CreateEmployeeForm() {
 	const dispatch = useDispatch()
@@ -63,14 +59,11 @@ export default function CreateEmployeeForm() {
 					/>
 				</Grid>
 				<Grid item xs={12} sm={4}>
-					<TextField
-						fullWidth
-						required
-						label="Date Of Birth"
+					<DatePicker
+						label="Date of Birth"
+						name="dateOfBirth"
 						onChange={formik.handleChange}
 						value={formik.values.dateOfBirth}
-						name="dateOfBirth"
-						type="date"
 					/>
 				</Grid>
 
@@ -110,50 +103,34 @@ export default function CreateEmployeeForm() {
 				<Grid item xs={12} sm={3}>
 					<FormControl fullWidth required>
 						<InputLabel id="state">State</InputLabel>
-						<Select
+						<SelectMenu
 							label="State"
-							labelId="state"
+							name="state"
 							value={formik.values.state}
 							onChange={formik.handleChange}
-							name="state"
-						>
-							{states.map((state, index) => (
-								<MenuItem key={index} value={state}>
-									{state}
-								</MenuItem>
-							))}
-						</Select>
+							items={states}
+						/>
 					</FormControl>
 				</Grid>
 
 				<Grid item xs={12} sm={6}>
-					<TextField
-						fullWidth
-						required
+					<DatePicker
 						label="Start Date"
+						name="startDate"
 						onChange={formik.handleChange}
 						value={formik.values.startDate}
-						name="startDate"
-						type="date"
 					/>
 				</Grid>
 				<Grid item xs={12} sm={6}>
 					<FormControl fullWidth required>
 						<InputLabel id="department">Department</InputLabel>
-						<Select
-							labelId="department"
+						<SelectMenu
 							label="Department"
-							required
 							name="department"
-							onChange={formik.handleChange}
 							value={formik.values.department}
-						>
-							{departments.map((department, index) => (
-								<MenuItem key={index} value={department}>
-									{department}
-								</MenuItem>
-							))}
-						</Select>
+							onChange={formik.handleChange}
+							items={departments}
+						/>
 					</FormControl>
 				</Grid>
 			</Grid>
@@ -162,7 +139,12 @@ export default function CreateEmployeeForm() {
 				Save
 			</Button>
 
-			{modalIsOpen && <Modal setOpen={setModalIsOpen} />}
+			{modalIsOpen && (
+				<Modal
+					setOpen={setModalIsOpen}
+					message="Employé créé avec succès !"
+				/>
+			)}
 		</div>
 	)
 }

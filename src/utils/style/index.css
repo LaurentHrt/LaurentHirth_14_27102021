@@ -37,6 +37,10 @@ h1 {
 	justify-content: center;
 }
 
+.formContainer label {
+	z-index: 0;
+}
+
 .container {
 	margin: auto;
 	display: flex;
