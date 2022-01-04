@@ -36,8 +36,11 @@ const { actions, reducer } = createSlice({
 			draft.push(action.payload)
 			return
 		},
+		reset: (draft, action) => {
+			return initialState
+		},
 	},
 })
 
 export default reducer
-export const { add } = actions
+export const { add, reset } = actions
