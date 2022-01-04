@@ -5940,8 +5940,14 @@
     "readable-stream" "^2.0.1"
     "wbuf" "^1.1.0"
 
-"hrnet-modal@file:../hrnet-modal":
-  "resolved" "file:../hrnet-modal"
+"hrnet-employee-modal@^1.0.0":
+  "integrity" "sha512-rdMfeHe4990sTt5yKaWWWVUOdAR/nlNndh3dFKdN9VVNAaqIbuXGH8pLHHhUBuwRS7F9jM58YTUyZ8jNl8Odwg=="
+  "resolved" "https://registry.npmjs.org/hrnet-employee-modal/-/hrnet-employee-modal-1.0.0.tgz"
+  "version" "1.0.0"
+
+"hrnet-employee-table@^1.0.0":
+  "integrity" "sha512-lE/zoWBrlfFAA0pMjr1DGjiJYkfpQ0Xb/KezedHlYaymnRRYU9JHqZDocJXcHSgbDbHoxOlyi/BMDrfwsgf7Eg=="
+  "resolved" "https://registry.npmjs.org/hrnet-employee-table/-/hrnet-employee-table-1.0.0.tgz"
   "version" "1.0.0"
 
 "hsl-regex@^1.0.0":

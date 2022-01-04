@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux'
 // import EmployeesTable from '../../components/EmployeesTable/EmployeesTable'
 import { selectEmployees } from '../../features/employees/employees'
-import EmployeesTable from 'hrnet-employees-table'
+import EmployeeTable from 'hrnet-employee-table'
 
 export default function EmployeeList() {
 	const employees = useSelector(selectEmployees)
@@ -9,7 +9,7 @@ export default function EmployeeList() {
 	return (
 		<div className="container">
 			<h1>Current Employees</h1>
-			<EmployeesTable employees={employees} />
+			<EmployeeTable employees={employees} />
 		</div>
 	)
 }
