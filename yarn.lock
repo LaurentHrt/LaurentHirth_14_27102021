@@ -5711,9 +5711,12 @@
     "readable-stream" "^2.0.1"
     "wbuf" "^1.1.0"
 
-"hrnet-employee-modal@^1.0.0-rc2":
-  "integrity" "sha512-rdMfeHe4990sTt5yKaWWWVUOdAR/nlNndh3dFKdN9VVNAaqIbuXGH8pLHHhUBuwRS7F9jM58YTUyZ8jNl8Odwg=="
-  "resolved" "https://registry.npmjs.org/hrnet-employee-modal/-/hrnet-employee-modal-1.0.0.tgz"
+"hrnet-employee-modal@file:../hrnet-modal":
+  "resolved" "file:../hrnet-modal"
+  "version" "1.0.0"
+
+"hrnet-employee-table@file:../hrnet-employees-table":
+  "resolved" "file:../hrnet-employees-table"
   "version" "1.0.0"
 
 "hsl-regex@^1.0.0":

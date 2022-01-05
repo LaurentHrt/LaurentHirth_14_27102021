@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { reset } from '../../features/employees/employees'
 import { selectEmployees } from '../../features/employees/employees'
 import EmployeeTable from 'hrnet-employee-table'
+import './style.css'
 
 export default function EmployeeList() {
 	const employees = useSelector(selectEmployees)

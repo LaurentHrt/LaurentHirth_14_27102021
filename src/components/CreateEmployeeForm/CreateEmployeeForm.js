@@ -7,6 +7,7 @@ import Modal from 'hrnet-employee-modal'
 import { useState } from 'react'
 import DatePicker from '../DatePicker/DatePicker'
 import SelectMenu from '../SelectMenu/SelectMenu'
+import './style.css'
 
 export default function CreateEmployeeForm() {
 	const dispatch = useDispatch()
@@ -34,7 +35,7 @@ export default function CreateEmployeeForm() {
 		<div className="formContainer">
 			<h1>Create Employee</h1>
 
-			<form action="#">
+			<form>
 				<label>First Name</label>
 				<input
 					name="firstname"
