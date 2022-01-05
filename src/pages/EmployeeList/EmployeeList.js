@@ -12,10 +12,49 @@ export default function EmployeeList() {
 		dispatch(reset())
 	}
 
+	const columns = [
+		{
+			Header: 'First Name',
+			accessor: 'firstname',
+		},
+		{
+			Header: 'Last Name',
+			accessor: 'lastname',
+		},
+		{
+			Header: 'Date Of Birth',
+			accessor: 'dateOfBirth',
+		},
+		{
+			Header: 'Start Date',
+			accessor: 'startDate',
+		},
+		{
+			Header: 'Street',
+			accessor: 'street',
+		},
+		{
+			Header: 'City',
+			accessor: 'city',
+		},
+		{
+			Header: 'State',
+			accessor: 'state',
+		},
+		{
+			Header: 'Zip Code',
+			accessor: 'zip',
+		},
+		{
+			Header: 'Department',
+			accessor: 'department',
+		},
+	]
+
 	return (
 		<div className="container">
 			<h1>Current Employees</h1>
-			<EmployeeTable employees={employees} />
+			<EmployeeTable data={employees} columns={columns} />
 			<Button onClick={resetEmployees} variant="contained">
 				*DEV* Reset
 			</Button>

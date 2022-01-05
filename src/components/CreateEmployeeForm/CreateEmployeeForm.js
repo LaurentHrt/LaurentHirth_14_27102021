@@ -142,6 +142,7 @@ export default function CreateEmployeeForm() {
 				<Modal
 					setOpen={setModalIsOpen}
 					message="Employé créé avec succès !"
+					buttonText="Ok"
 				/>
 			)}
 		</div>
