@@ -2,7 +2,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { reset } from '../../features/employees/employees'
 import { selectEmployees } from '../../features/employees/employees'
 import EmployeeTable from 'hrnet-employee-table'
-import { Button } from '@mui/material'
 
 export default function EmployeeList() {
 	const employees = useSelector(selectEmployees)
@@ -55,9 +54,7 @@ export default function EmployeeList() {
 		<div className="container">
 			<h1>Current Employees</h1>
 			<EmployeeTable data={employees} columns={columns} />
-			<Button onClick={resetEmployees} variant="contained">
-				*DEV* Reset
-			</Button>
+			<button onClick={resetEmployees}>*DEV* Reset</button>
 		</div>
 	)
 }

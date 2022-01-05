@@ -3,8 +3,6 @@ import { states } from '../../assets/data/states'
 import { departments } from '../../assets/data/departments'
 import { useDispatch } from 'react-redux'
 import { add } from '../../features/employees/employees'
-import Button from '@mui/material/Button'
-import { FormControl, InputLabel, TextField, Grid } from '@mui/material'
 import Modal from 'hrnet-employee-modal'
 import { useState } from 'react'
 import DatePicker from '../DatePicker/DatePicker'
@@ -36,107 +34,81 @@ export default function CreateEmployeeForm() {
 		<div className="formContainer">
 			<h1>Create Employee</h1>
 
-			<Grid container rowSpacing={3} columnSpacing={3}>
-				<Grid item xs={12} sm={4}>
-					<TextField
-						fullWidth
-						required
-						label="First Name"
-						onChange={formik.handleChange}
-						value={formik.values.firstname}
-						name="firstname"
-					/>
-				</Grid>
-				<Grid item xs={12} sm={4}>
-					<TextField
-						fullWidth
-						required
-						label="Last Name"
-						onChange={formik.handleChange}
-						value={formik.values.lastname}
-						name="lastname"
-					/>
-				</Grid>
-				<Grid item xs={12} sm={4}>
-					<DatePicker
-						label="Date of Birth"
-						name="dateOfBirth"
-						onChange={formik.handleChange}
-						value={formik.values.dateOfBirth}
-					/>
-				</Grid>
+			<form action="#">
+				<label>First Name</label>
+				<input
+					name="firstname"
+					onChange={formik.handleChange}
+					value={formik.values.firstname}
+				/>
 
-				<Grid item xs={12} sm={3}>
-					<TextField
-						fullWidth
-						required
-						label="Street"
+				<label>Last Name</label>
+				<input
+					name="lastname"
+					onChange={formik.handleChange}
+					value={formik.values.lastname}
+				/>
+
+				<label>Date of Birth</label>
+				<DatePicker
+					name="dateOfBirth"
+					onChange={formik.handleChange}
+					value={formik.values.dateOfBirth}
+				/>
+
+				<label>Start Date</label>
+				<DatePicker
+					name="startDate"
+					onChange={formik.handleChange}
+					value={formik.values.startDate}
+				/>
+
+				<fieldset>
+					<legend>Address</legend>
+
+					<label>Street</label>
+					<input
+						name="street"
 						onChange={formik.handleChange}
 						value={formik.values.street}
-						name="street"
-						type="text"
 					/>
-				</Grid>
-				<Grid item xs={12} sm={3}>
-					<TextField
-						fullWidth
-						required
-						label="City"
+
+					<label>City</label>
+					<input
+						name="city"
 						onChange={formik.handleChange}
 						value={formik.values.city}
-						name="city"
-						type="text"
 					/>
-				</Grid>
-				<Grid item xs={12} sm={3}>
-					<TextField
-						fullWidth
-						required
-						label="Zip Code"
+
+					<label>State</label>
+					<SelectMenu
+						name="state"
+						value={formik.values.state}
+						onChange={formik.handleChange}
+						items={states}
+					/>
+
+					<label>Zip Code</label>
+					<input
+						type="number"
+						name="zip"
 						onChange={formik.handleChange}
 						value={formik.values.zip}
-						name="zip"
-						type="number"
 					/>
-				</Grid>
-				<Grid item xs={12} sm={3}>
-					<FormControl fullWidth required>
-						<InputLabel id="state">State</InputLabel>
-						<SelectMenu
-							label="State"
-							name="state"
-							value={formik.values.state}
-							onChange={formik.handleChange}
-							items={states}
-						/>
-					</FormControl>
-				</Grid>
+				</fieldset>
 
-				<Grid item xs={12} sm={6}>
-					<DatePicker
-						label="Start Date"
-						name="startDate"
-						onChange={formik.handleChange}
-						value={formik.values.startDate}
-					/>
-				</Grid>
-				<Grid item xs={12} sm={6}>
-					<FormControl fullWidth required>
-						<InputLabel id="department">Department</InputLabel>
-						<SelectMenu
-							label="Department"
-							name="department"
-							value={formik.values.department}
-							onChange={formik.handleChange}
-							items={departments}
-						/>
-					</FormControl>
-				</Grid>
-			</Grid>
+				<label>Department</label>
+				<SelectMenu
+					name="department"
+					value={formik.values.department}
+					onChange={formik.handleChange}
+					items={departments}
+				/>
+			</form>
 
-			<Button onClick={formik.handleSubmit} variant="contained">
+			<button type="button" onClick={formik.handleSubmit}>
 				Save
-			</Button>
+			</button>
 
 			{modalIsOpen && (
 				<Modal
