@@ -1,13 +1,13 @@
+import React, { useState } from 'react'
 import { useFormik } from 'formik'
 import { states } from '../../assets/data/states'
 import { departments } from '../../assets/data/departments'
+import add from '../../features/employees/employees'
 import { useDispatch } from 'react-redux'
-import { add } from '../../features/employees/employees'
 import Modal from 'hrnet-employee-modal'
-import { useState } from 'react'
+import './style.css'
 import DatePicker from '../DatePicker/DatePicker'
 import SelectMenu from '../SelectMenu/SelectMenu'
-import './style.css'
 
 export default function CreateEmployeeForm() {
 	const dispatch = useDispatch()
@@ -36,30 +36,34 @@ export default function CreateEmployeeForm() {
 			<h1>Create Employee</h1>
 
 			<form>
-				<label>First Name</label>
+				<label htmlFor="firstname">First Name</label>
 				<input
 					name="firstname"
+					id="firstname"
 					onChange={formik.handleChange}
 					value={formik.values.firstname}
 				/>
 
-				<label>Last Name</label>
+				<label htmlFor="lastname">Last Name</label>
 				<input
 					name="lastname"
+					id="lastname"
 					onChange={formik.handleChange}
 					value={formik.values.lastname}
 				/>
 
-				<label>Date of Birth</label>
+				<label htmlFor="dateOfBirth">Date of Birth</label>
 				<DatePicker
 					name="dateOfBirth"
+					id="dateOfBirth"
 					onChange={formik.handleChange}
 					value={formik.values.dateOfBirth}
 				/>
 
-				<label>Start Date</label>
+				<label htmlFor="startdate">Start Date</label>
 				<DatePicker
 					name="startDate"
+					id="startDate"
 					onChange={formik.handleChange}
 					value={formik.values.startDate}
 				/>
@@ -67,40 +71,45 @@ export default function CreateEmployeeForm() {
 				<fieldset>
 					<legend>Address</legend>
 
-					<label>Street</label>
+					<label htmlFor="street">Street</label>
 					<input
 						name="street"
+						id="street"
 						onChange={formik.handleChange}
 						value={formik.values.street}
 					/>
 
-					<label>City</label>
+					<label htmlFor="city">City</label>
 					<input
 						name="city"
+						id="city"
 						onChange={formik.handleChange}
 						value={formik.values.city}
 					/>
 
-					<label>State</label>
+					<label htmlFor="state">State</label>
 					<SelectMenu
 						name="state"
+						id="state"
 						value={formik.values.state}
 						onChange={formik.handleChange}
 						items={states}
 					/>
 
-					<label>Zip Code</label>
+					<label htmlFor="zip">Zip Code</label>
 					<input
 						type="number"
 						name="zip"
+						id="zip"
 						onChange={formik.handleChange}
 						value={formik.values.zip}
 					/>
 				</fieldset>
 
-				<label>Department</label>
+				<label htmlFor="department">Department</label>
 				<SelectMenu
 					name="department"
+					id="department"
 					value={formik.values.department}
 					onChange={formik.handleChange}
 					items={departments}
