@@ -9,11 +9,6 @@ import './style.css'
 import DatePicker from '../DatePicker/DatePicker'
 import SelectMenu from '../SelectMenu/SelectMenu'
 
-const add = React.lazy(() => import('../../features/employees/employees'))
-const Modal = React.lazy(() => import('hrnet-employee-modal'))
-const DatePicker = React.lazy(() => import('../DatePicker/DatePicker'))
-const SelectMenu = React.lazy(() => import('../SelectMenu/SelectMenu'))
-
 export default function CreateEmployeeForm() {
 	const dispatch = useDispatch()
 	const [modalIsOpen, setModalIsOpen] = useState(false)
