@@ -54,15 +54,13 @@ export default function CreateEmployeeForm() {
 				<label htmlFor="dateOfBirth">Date of Birth</label>
 				<DatePicker
 					name="dateOfBirth"
-					id="dateOfBirth"
 					onChange={formik.handleChange}
 					value={formik.values.dateOfBirth}
 				/>
 
-				<label htmlFor="startdate">Start Date</label>
+				<label htmlFor="startDate">Start Date</label>
 				<DatePicker
 					name="startDate"
-					id="startDate"
 					onChange={formik.handleChange}
 					value={formik.values.startDate}
 				/>
@@ -89,7 +87,6 @@ export default function CreateEmployeeForm() {
 					<label htmlFor="state">State</label>
 					<SelectMenu
 						name="state"
-						id="state"
 						value={formik.values.state}
 						onChange={formik.handleChange}
 						items={states}
