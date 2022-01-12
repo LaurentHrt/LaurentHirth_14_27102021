@@ -4,7 +4,7 @@ import { states } from '../../assets/data/states'
 import { departments } from '../../assets/data/departments'
 import { add } from '../../features/employees/employees'
 import { useDispatch } from 'react-redux'
-import Modal from 'hrnet-employee-modal'
+import Modal from '@laurenthrt/hrnet-modal'
 import DatePicker from '../DatePicker/DatePicker'
 import SelectMenu from '../SelectMenu/SelectMenu'
 

@@ -2,9 +2,9 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { reset } from '../../features/employees/employees'
 import { selectEmployees } from '../../features/employees/employees'
-import 'hrnet-employee-table/dist/index.css'
+import '@laurenthrt/hrnet-table/dist/index.css'
 
-const EmployeeTable = React.lazy(() => import('hrnet-employee-table'))
+const EmployeeTable = React.lazy(() => import('@laurenthrt/hrnet-table'))
 
 export default function EmployeeList() {
 	const employees = useSelector(selectEmployees)
