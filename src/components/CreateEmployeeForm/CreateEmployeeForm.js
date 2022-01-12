@@ -1,13 +1,14 @@
+import React, { useState } from 'react'
 import { useFormik } from 'formik'
 import { states } from '../../assets/data/states'
 import { departments } from '../../assets/data/departments'
 import { useDispatch } from 'react-redux'
-import { add } from '../../features/employees/employees'
-import Modal from 'hrnet-employee-modal'
-import { useState } from 'react'
-import DatePicker from '../DatePicker/DatePicker'
-import SelectMenu from '../SelectMenu/SelectMenu'
 import './style.css'
+
+const add = React.lazy(() => import('../../features/employees/employees'))
+const Modal = React.lazy(() => import('hrnet-employee-modal'))
+const DatePicker = React.lazy(() => import('../DatePicker/DatePicker'))
+const SelectMenu = React.lazy(() => import('../SelectMenu/SelectMenu'))
 
 export default function CreateEmployeeForm() {
 	const dispatch = useDispatch()
