@@ -10,6 +10,7 @@ This repo contains all the source code to run the HRnet app
 ## Dependencies
 
 -   [hrnet-modal library](https://github.com/LaurentHrt/hrnet-modal)
+-   [hrnet-table library](https://github.com/LaurentHrt/hrnet-table)
 
 ## Installation
 
