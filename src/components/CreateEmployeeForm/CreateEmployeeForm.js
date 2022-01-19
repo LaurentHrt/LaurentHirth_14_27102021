@@ -24,9 +24,10 @@ export default function CreateEmployeeForm() {
 			zip: 0,
 			department: departments[0],
 		},
-		onSubmit: (values) => {
+		onSubmit: (values, { resetForm }) => {
 			dispatch(add(values))
 			setModalIsOpen(true)
+			resetForm()
 		},
 	})
 
