@@ -34,6 +34,17 @@ const initialState = [
 		zip: 12345,
 		department: 'Legal',
 	},
+	{
+		firstname: 'John',
+		lastname: 'Marston',
+		dateOfBirth: '1990-12-03',
+		startDate: '2020-11-02',
+		street: 'The street',
+		city: 'Las Vegas',
+		state: 'Alabama',
+		zip: 12345,
+		department: 'Engineering',
+	},
 ]
 const sessionState = JSON.parse(localStorage.getItem('employees'))
 
