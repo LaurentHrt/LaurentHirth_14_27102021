@@ -1,6 +1,5 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { reset } from '../../features/employees/employees'
+import { useSelector } from 'react-redux'
 import { selectEmployees } from '../../features/employees/employees'
 import '@laurenthrt/hrnet-table/dist/index.css'
 
@@ -8,11 +7,6 @@ const EmployeeTable = React.lazy(() => import('@laurenthrt/hrnet-table'))
 
 export default function EmployeeList() {
 	const employees = useSelector(selectEmployees)
-	const dispatch = useDispatch()
-
-	const resetEmployees = () => {
-		dispatch(reset())
-	}
 
 	const columns = [
 		{
@@ -57,7 +51,6 @@ export default function EmployeeList() {
 		<div className="container">
 			<h1>Current Employees</h1>
 			<EmployeeTable data={employees} columns={columns} />
-			<button onClick={resetEmployees}>*DEV* Reset</button>
 		</div>
 	)
 }
