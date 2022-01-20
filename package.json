@@ -3,8 +3,8 @@
 	"version": "0.1.0",
 	"private": true,
 	"dependencies": {
-		"@laurenthrt/hrnet-modal": "^1.0.0",
-		"@laurenthrt/hrnet-table": "^1.0.0",
+		"@laurenthrt/hrnet-modal": "^1.0.1",
+		"@laurenthrt/hrnet-table": "^1.0.3",
 		"@reduxjs/toolkit": "^1.6.2",
 		"@testing-library/jest-dom": "^5.11.4",
 		"@testing-library/react": "^11.1.0",
