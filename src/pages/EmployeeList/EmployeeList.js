@@ -2,6 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { selectEmployees } from '../../features/employees/employees'
 import '@laurenthrt/hrnet-table/dist/index.css'
+import { Container, Typography } from '@mui/material'
 
 const EmployeeTable = React.lazy(() => import('@laurenthrt/hrnet-table'))
 
@@ -48,9 +49,12 @@ export default function EmployeeList() {
 	]
 
 	return (
-		<div className="container">
-			<h1>Current Employees</h1>
+		<Container component="main" sx={{ mb: 4 }} className="formContainer">
+			<Typography component="h1" variant="h4" mt={4} mb={4}>
+				Current Employees
+			</Typography>
+
 			<EmployeeTable data={employees} columns={columns} />
-		</div>
+		</Container>
 	)
 }
